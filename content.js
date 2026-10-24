@@ -7,7 +7,7 @@
      Use single quotes ' inside links, never double quotes ".
    - To add something, copy a whole { ... }, block and paste it below itself.
    - To remove something, delete its whole { ... }, block.
-   - Photos: upload to the img folder, then use the filename without .jpg
+   - Photos: upload to the main folder (next to this file), then use the filename without .jpg
      (example: "race-final" means img/race-final.jpg).
    - If the page goes blank, a quote or comma is missing: look for the error
      message shown on the page, or paste this file into Claude and ask it to
@@ -27,7 +27,7 @@ window.PORTFOLIO = {
     heroCaption: "The ASCEND hybrid aerial-terrestrial robot platform, with the avionics enclosure I designed and fabricated.",
     email: "sebastianfcas@utexas.edu",
     linkedin: "https://www.linkedin.com/in/sebastian-fernandezdc",
-    resume: "assets/Sebastian_Fernandez_Resume.pdf",
+    resume: "Sebastian_Fernandez_Resume.pdf",
     projectsIntro: "Each case study covers constraints, decisions, what was built, and what I contributed.",
     contactIntro: "Open to internships and co-ops in mechanical design, manufacturing, systems and process engineering.",
   },

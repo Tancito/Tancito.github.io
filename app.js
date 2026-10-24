@@ -2,7 +2,7 @@
 (function (root) {
   var C = root.PORTFOLIO;
   var esc = function (s) { return String(s == null ? '' : s); };
-  var img = function (f) { return 'img/' + f + '.jpg'; };
+  var img = function (f) { return f + '.jpg'; };
 
   function tagHtml(t) { return '<span class="tag ' + esc(t[1]) + '">' + esc(t[0]) + '</span>'; }
   function tagsHtml(ts) { return '<div class="tags">' + (ts || []).map(tagHtml).join('') + '</div>'; }
