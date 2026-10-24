@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sebastian Fernandez - Mechanical Engineering Portfolio</title>
+<meta name="description" content="Sebastian Fernandez Del Castillo - mechanical engineering portfolio">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css"></head><body><div id="app"></div>
+<script>
+function showErr(m){document.getElementById('app').innerHTML='<div class="errbox">Something is wrong in content.js:\n\n'+m+'\n\nUsually a missing quote, comma or bracket near the place you last edited.</div>';}
+window.onerror=function(m,s,l){showErr(m+(l?' (line '+l+')':''));};
+</script>
+<script src="content.js"></script><script src="assets/app.js"></script>
+<script>
+try{
+  var R=window.SiteRender;
+  document.getElementById('app').innerHTML=R.home();if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView();}
+}catch(e){showErr(String(e))}
+</script></body></html>
