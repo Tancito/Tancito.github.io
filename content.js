@@ -8,7 +8,7 @@
    - To add something, copy a whole { ... }, block and paste it below itself.
    - To remove something, delete its whole { ... }, block.
    - Photos: upload to the main folder (next to this file), then use the filename without .jpg
-     (example: "race-final" means img/race-final.jpg).
+     (example: "race-final" means race-final.jpg).
    - If the page goes blank, a quote or comma is missing: look for the error
      message shown on the page, or paste this file into Claude and ask it to
      find the mistake.
@@ -20,32 +20,40 @@ window.PORTFOLIO = {
   site: {
     name: "Sebastian Fernandez",
     fullName: "Sebastian Fernandez Del Castillo",
-    eyebrow: "Mechanical Engineering &middot; UT Austin &middot; Dec 2027",
+    eyebrow: "Sebastian Fernandez Del Castillo",
     headline: "I design, build and test mechanical systems.",
-    lede: "Mechanical engineering student focused on mechanical design, manufacturing, systems and process engineering. Each project page says plainly what I did and what the team did.",
+    degree: "B.S. Mechanical Engineering, The University of Texas at Austin, December 2027",
+    focus: ["Design", "Manufacturing", "Systems", "Process engineering"],
+    intro: "Mechanical engineering student focused on mechanical design, manufacturing and hands-on hardware. Recent work includes leading production for ASCEND Texas's hybrid aerial-terrestrial robot, designing its laser-cut avionics enclosure, and developing test hardware layouts and cooling concepts for a reaction-wheel experiment at Texas Spacecraft Laboratory.",
+    looking: "Looking for internships and co-ops in automotive, aerospace, robotics and advanced manufacturing.",
+    /* To add your photo: upload it (example: headshot.jpg) and set photo: "headshot".
+       Leave photo as "" to show the ASCEND photo instead. */
+    photo: "",
+    photoCaption: "",
     heroImage: "ascend-atv",
     heroCaption: "The ASCEND hybrid aerial-terrestrial robot platform, with the avionics enclosure I designed and fabricated.",
     email: "sebastianfcas@utexas.edu",
     linkedin: "https://www.linkedin.com/in/sebastian-fernandezdc",
     resume: "Sebastian_Fernandez_Resume.pdf",
-    projectsIntro: "Each case study covers constraints, decisions, what was built, and what I contributed.",
+    projectsIntro: "Case studies of what I built, how I decided, and what I learned.",
     contactIntro: "Open to internships and co-ops in mechanical design, manufacturing, systems and process engineering.",
   },
 
   /* ---------- EXPERIENCE (newest first) ---------- */
   experience: [
+    { dates: "Now", title: "Longhorn Lemons, Member", link: "", text: "Hands-on automotive racing team at UT Austin." },
     { dates: "May 2025 - May 2026", title: "ASCEND Texas, Production Lead", link: "project.html?p=ascend-integration", text: "Led production integration and trained a 5-member shop team. Before that, Mechanical Design &amp; Production Engineer (Jan - May 2025)." },
-    { dates: "Jan 2025 - present", title: "Texas Spacecraft Laboratory, REACT Hardware Engineer", link: "project.html?p=react", text: "" },
-    { dates: "May - Jul 2025", title: "ARTS Lab, Student Researcher", link: "project.html?p=arts", text: "" },
+    { dates: "Jan 2025 - present", title: "Texas Spacecraft Laboratory, REACT Hardware Engineer", link: "project.html?p=react", text: "Test hardware layout for reaction-wheel magnetic measurements; now developing cooling concepts." },
+    { dates: "May - Jul 2025", title: "ARTS Lab, Student Researcher", link: "project.html?p=arts", text: "MATLAB analysis of fiber-optic shape sensing against motion capture." },
     { dates: "May 2022 - present", title: "Cubes4Good, Founder", link: "https://cubes4good.org", text: "Teaching Rubik's Cube techniques to children in long-term medical treatment." },
   ],
 
   /* ---------- SKILLS ---------- */
   skills: [
-    { group: "Design and analysis", items: "SolidWorks, Fusion 360, FEA, GD&amp;T, MATLAB, Arduino" },
-    { group: "Manufacturing", items: "CAM and CNC, manual mill, manual lathe, welding, laser cutting, 3D printing, soldering" },
-    { group: "Languages", items: "English, Spanish (fluent)" },
-    { group: "Currently", items: "Member of Longhorn Lemons, a hands-on UT Austin automotive racing team" },
+    { group: "Software", items: ["SolidWorks", "Fusion 360", "FEA", "CAM", "MATLAB", "Arduino"] },
+    { group: "Fabrication", items: ["3D printing", "Laser cutting", "CNC", "Manual mill", "Manual lathe", "Welding", "Soldering"] },
+    { group: "Design practice", items: ["GD&amp;T", "Design for manufacturing", "Prototyping", "Testing"] },
+    { group: "Languages", items: ["English", "Spanish (fluent)"] },
   ],
 
   /* ---------- LEADERSHIP / COMMUNITY ---------- */
@@ -69,6 +77,7 @@ window.PORTFOLIO = {
     {
       id: "avionics-enclosure",
       title: "Avionics Enclosure",
+      cardPos: "50% 90%",
       cardImage: "avionics-build",
       cardOrg: "ASCEND Texas",
       cardBlurb: "Laser-cut enclosure for a flight controller, sensors and batteries. Packaging, EMI, airflow, serviceability.",
@@ -76,6 +85,7 @@ window.PORTFOLIO = {
         ["Individual design", "own"],
       ],
       kicker: "ASCEND Texas &middot; Individual design project",
+      stats: [],
       tags: [
         ["Individual design", "own"],
         ["Completed", "ok"],
@@ -119,7 +129,7 @@ window.PORTFOLIO = {
                 team: [
                   "The mechatronics team defined the servo-control hardware and battery needs the enclosure had to accommodate",
                 ],
-                teamTitle: "Who else was involved",
+                teamTitle: "Worked with",
               },
             },
           ],
@@ -159,8 +169,7 @@ window.PORTFOLIO = {
           id: "results",
           title: "Results",
           blocks: [
-            { p: "The enclosure was fabricated, assembled and installed on the ASCEND ATV, housing the flight electronics." },
-            { callout: "<b>Scope note.</b> Design decisions were based on layout planning, fit checks and iteration. I did not run formal FEA or electromagnetic simulation on the enclosure." },
+            { p: "The enclosure was fabricated, assembled and installed on the ASCEND ATV, housing the flight electronics. Decisions came from layout planning, fit checks and repeated rebuilds as the electronics changed." },
           ],
         },
         {
@@ -179,6 +188,7 @@ window.PORTFOLIO = {
     {
       id: "ascend-integration",
       title: "ASCEND: Integration &amp; Manufacturing",
+      cardPos: "",
       cardImage: "actuator-atv",
       cardOrg: "ASCEND Texas",
       cardBlurb: "Actuator mounts, a CNC steering plate and test stands. I led production and coordinated the build.",
@@ -186,9 +196,12 @@ window.PORTFOLIO = {
         ["Production lead", "own"],
       ],
       kicker: "ASCEND Texas &middot; Production Lead, May 2025 - May 2026",
+      stats: [
+        ["5", "person production team trained"],
+        ["12 mo", "as Production Lead"],
+      ],
       tags: [
         ["Production leadership", "own"],
-        ["Team project", ""],
       ],
       lede: "How a hybrid aerial-terrestrial robot moved from separate subsystem tests to hardware mounted on the ATV, and my part in getting it built.",
       spec: [
@@ -230,7 +243,6 @@ window.PORTFOLIO = {
             {
               tags: [
                 ["Guided and coordinated", "own"],
-                ["Team design", ""],
               ],
             },
             { p: "The parafoil is steered with linear actuators. They began on a standalone test arrangement, and the goal was to move them onto the ATV for steering tests." },
@@ -243,7 +255,9 @@ window.PORTFOLIO = {
                   "Led CAD reviews and prototype iterations against the constraints above",
                   "Coordinated prototype development",
                 ],
-                team: ["Team members developed the detailed mount CAD, some under my guidance"],
+                team: [
+                  "Team members developed the detailed mount CAD, with design reviews led by me",
+                ],
               },
             },
             {
@@ -261,14 +275,13 @@ window.PORTFOLIO = {
           blocks: [
             {
               tags: [
-                ["CAM and machining prep", "own"],
-                ["Plate designed by a teammate", ""],
+                ["CAM and machining", "own"],
               ],
             },
             { p: "A steering plate had to go from a drawing to a machined part so the steering system could be assembled and tested." },
-            { p: "Working with a shop employee, I prepared the Fusion 360 CAM workflow from the plate DXF. Hole recognition needed troubleshooting, so we organized the job into clear operations: surfacing, drilling, outer profiling, tabs for holding the part, and tool changes." },
+            { p: "Starting from a teammate's plate design, I worked with a shop employee to prepare the Fusion 360 CAM workflow from the plate DXF. Hole recognition needed troubleshooting, so we organized the job into clear operations: surfacing, drilling, outer profiling, tabs for holding the part, and tool changes." },
             { p: "<b>A sourcing decision.</b> The preferred stock dimensions were unavailable. A teammate and I decided to use thicker stock and surface it down to the final dimensions, trading extra machining for a part we could actually get." },
-            { p: "The finished plate moved the steering subsystem into physical assembly and functional testing. Another team member designed the plate geometry." },
+            { p: "The finished plate moved the steering subsystem into physical assembly and functional testing." },
             {
               images: [
                 ["plate-cad", "Plate model"],
@@ -284,8 +297,7 @@ window.PORTFOLIO = {
           blocks: [
             {
               tags: [
-                ["Worked with teammates", "own"],
-                ["Team design", ""],
+                ["Built with teammates", "own"],
               ],
             },
             { p: "Before the subsystems were on the vehicle, the team built stands to test them separately. One configuration supported propulsion and static testing. Another supported actuator and parafoil experiments with strain gauges, camera hardware, a Raspberry Pi and a Jetson." },
@@ -305,11 +317,10 @@ window.PORTFOLIO = {
             {
               tags: [
                 ["Guided development", "own"],
-                ["Team design", ""],
               ],
             },
             { p: "The parafoil attaches to the ATV top rails through custom hardware. It has to mount securely, stay compact, be practical to fabricate, and work with the actuator steering layout." },
-            { p: "The concept evolved from an initial rail-mounted geometry to a more supported interface that wraps around the tube. That improved attachment stability, and simpler internal cutouts made it easier to manufacture. I guided that development and reviewed design directions; I did not design every part." },
+            { p: "The concept evolved from an initial rail-mounted geometry to a more supported interface that wraps around the tube. That improved attachment stability, and simpler internal cutouts made it easier to manufacture. I guided that development and reviewed the design directions." },
             {
               images: [
                 ["parafoil-a", "Supported top-rail interface"],
@@ -326,7 +337,6 @@ window.PORTFOLIO = {
             {
               tags: [
                 ["Guided development", "own"],
-                ["Team project", ""],
               ],
             },
             { p: "This mount connects the propulsion motor and propeller to the propulsion cage. It has to hold motor alignment, keep propeller clearance, and carry load into the cage with enough stiffness." },
@@ -345,7 +355,6 @@ window.PORTFOLIO = {
           title: "Results and scope",
           blocks: [
             { p: "Subsystems moved from standalone setups toward ATV integration, and hardware was fabricated to support steering and propulsion testing." },
-            { callout: "<b>Scope note.</b> My direct work here is production leadership, integration planning, design reviews, CAM and machining preparation, training, and collaborative test-stand work. Detailed CAD for the actuator mounts, steering plate, parafoil hardware and motor mount was done by teammates." },
           ],
         },
       ],
@@ -353,6 +362,7 @@ window.PORTFOLIO = {
     {
       id: "racecar",
       title: "RC Racecar",
+      cardPos: "",
       cardImage: "race-final",
       cardOrg: "Machine Elements",
       cardBlurb: "Rear-wheel-drive car with a laser-cut chassis and ~10:1 gearbox. 21.05 s over three laps.",
@@ -360,9 +370,13 @@ window.PORTFOLIO = {
         ["Led fabrication &amp; assembly", "own"],
       ],
       kicker: "Machine Elements &middot; Team project, Aug - Dec 2025",
+      stats: [
+        ["21.05 s", "three-lap race time"],
+        ["~10:1", "gear reduction"],
+        ["< $100", "project budget"],
+      ],
       tags: [
         ["Led fabrication &amp; assembly", "own"],
-        ["Team design", ""],
       ],
       lede: "A rear-wheel-drive RC car designed to finish a three-lap race quickly on a $100 budget. I led fabrication and assembly.",
       spec: [
@@ -469,6 +483,7 @@ window.PORTFOLIO = {
     {
       id: "react",
       title: "REACT: Reaction-Wheel Magnetic Test Setup",
+      cardPos: "",
       cardImage: "react-layout",
       cardOrg: "Texas Spacecraft Lab",
       cardBlurb: "Test layout for reaction-wheel magnetic measurements, plus cooling concepts in progress.",
@@ -476,6 +491,7 @@ window.PORTFOLIO = {
         ["Ongoing", "wip"],
       ],
       kicker: "Texas Spacecraft Laboratory &middot; Jan 2025 - present",
+      stats: [],
       tags: [
         ["Layout complete", "ok"],
         ["Cooling ongoing", "wip"],
@@ -496,7 +512,15 @@ window.PORTFOLIO = {
             {
               images: [
                 ["react-layout", "Test board layout concept (SolidWorks)"],
-                ["react-c", "Support hardware used to visualize the broader test setup"],
+              ],
+            },
+            { p: "Damping and magnetometer support hardware concepts used to visualize the broader test setup:" },
+            {
+              images: [
+                ["react-a", "Support concept A"],
+                ["react-b", "Support concept B"],
+                ["react-c", "Support concept C"],
+                ["react-d", "Support concept D"],
               ],
               contain: true,
             },
@@ -517,7 +541,7 @@ window.PORTFOLIO = {
   "<b>Non-ferromagnetic materials:</b> hardware near the sensors must not distort the field being measured.",
   "<b>Camera positioning:</b> optical-table and slider-based camera mounting concepts to improve visibility and positioning.",
 ] },
-            { callout: "I did not CAD every structural support, damping component or magnetometer mount shown in the broader setup, and some camera mounting concepts were not fully implemented." },
+            { p: "Some of the camera mounting concepts were explored but not carried through to implementation." },
           ],
         },
         {
@@ -540,7 +564,7 @@ window.PORTFOLIO = {
   "Gear- or belt-driven cooling alternatives, weighed against the added mechanical load on flywheel measurements",
 ] },
             { p: "<b>Current preferred direction:</b> external electric blowers pushing air through non-ferromagnetic tubing into the enclosure, directed over the motor and copper windings. For the coil, two opposing side-slot manifolds, potentially fed by a Y-split duct." },
-            { callout: "None of these concepts has been manufactured or tested, and none has been shown to reduce temperature. I will update this page when there are results.", type: "wip" },
+            { callout: "<b>Where this stands.</b> These are design concepts. None has been manufactured or tested yet, so no temperature results are claimed. I will add results here as they come in.", type: "wip" },
           ],
         },
         {
@@ -555,6 +579,7 @@ window.PORTFOLIO = {
     {
       id: "drawing-machine",
       title: "Cam-Driven Drawing Machine",
+      cardPos: "",
       cardImage: "cam-build",
       cardOrg: "Mechanism design",
       cardBlurb: "One motor, three cams: coordinated X, Y and pen-lift motion with no electronics.",
@@ -562,6 +587,10 @@ window.PORTFOLIO = {
         ["Team project", ""],
       ],
       kicker: "Robotic Mechanism Design &middot; Team project, Aug - Dec 2025",
+      stats: [
+        ["1 motor", "drives all motion"],
+        ["3 cams", "X, Y and pen lift"],
+      ],
       tags: [
         ["Team project", ""],
       ],
@@ -649,6 +678,7 @@ window.PORTFOLIO = {
     {
       id: "arts",
       title: "Surgical Screw Shape Sensing",
+      cardPos: "",
       cardImage: "",
       cardOrg: "ARTS Lab",
       cardBlurb: "Comparing fiber-optic shape reconstruction against motion capture in MATLAB.",
@@ -656,6 +686,10 @@ window.PORTFOLIO = {
         ["Research", ""],
       ],
       kicker: "ARTS Lab &middot; Student researcher, May - Jul 2025",
+      stats: [
+        ["Sub-mm", "tip-position accuracy in some calibration results"],
+        ["3", "bending cases compared: free, sharp, round"],
+      ],
       tags: [
         ["Research", "own"],
         ["Data analysis", ""],
@@ -716,7 +750,6 @@ window.PORTFOLIO = {
           title: "Results",
           blocks: [
             { p: "Some calibration results achieved submillimeter tip-position accuracy against the VICON reference." },
-            { callout: "My contribution was MATLAB data processing, parameter adjustment, visualization and comparison. I did not develop the fiber-optic sensing technology or the shape-reconstruction algorithms." },
           ],
         },
         {

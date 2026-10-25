@@ -21,8 +21,8 @@
     if (b.flow) return '<div class="flow">' + b.flow.map(function (s) { return '<div><b>' + s[0] + '</b>' + s[1] + '</div>'; }).join('') + '</div>';
     if (b.role) {
       var li = function (xs) { return xs.map(function (x) { return '<li>' + x + '</li>'; }).join(''); };
-      return '<div class="role"><div><h4>' + (b.role.mineTitle || 'What I did') + '</h4><ul>' + li(b.role.mine) + '</ul></div><div><h4>' +
-        (b.role.teamTitle || 'What the team did') + '</h4><ul>' + li(b.role.team) + '</ul></div></div>';
+      return '<div class="role"><div class="mine"><h4>' + (b.role.mineTitle || 'My contribution') + '</h4><ul>' + li(b.role.mine) + '</ul></div><div class="team"><h4>' +
+        (b.role.teamTitle || 'Team context') + '</h4><ul>' + li(b.role.team) + '</ul></div></div>';
     }
     if (b.images) {
       var one = b.images.length === 1;
@@ -44,28 +44,39 @@
 
   function card(p) {
     var im = p.cardImage
-      ? '<img src="' + img(p.cardImage) + '" alt="' + esc(p.title) + '" loading="lazy">'
+      ? '<img src="' + img(p.cardImage) + '" alt="' + esc(p.title) + '" loading="lazy"' + (p.cardPos ? ' style="object-position:' + p.cardPos + '"' : '') + '>'
       : '<div class="ph">strain<br>&darr;<br>reconstructed shape<br>&darr;<br>compare with VICON</div>';
     return '<a class="card" href="project.html?p=' + p.id + '">' + im + '<div class="body"><div class="tags"><span class="tag">' + p.cardOrg + '</span>' +
-      (p.cardTags || []).map(tagHtml).join('') + '</div><h3>' + p.title + '</h3><p>' + p.cardBlurb + '</p></div></a>';
+      (p.cardTags || []).map(tagHtml).join('') + '</div><h3>' + p.title + '</h3><p>' + p.cardBlurb + '</p><span class="more-link">Read case study &rarr;</span></div></a>';
   }
+
+  function chips(items) { return (items || []).map(function (x) { return '<span class="chip">' + x + '</span>'; }).join(''); }
 
   function home() {
     var s = C.site, L = C.leadership;
+    var visual = s.photo
+      ? '<figure class="photo"><img src="' + img(s.photo) + '" alt="' + esc(s.fullName) + '">' + (s.photoCaption ? '<figcaption>' + s.photoCaption + '</figcaption>' : '') + '</figure>'
+      : '<figure class="photo wide"><img src="' + img(s.heroImage) + '" alt="' + esc(s.heroCaption) + '"><figcaption>' + s.heroCaption + '</figcaption></figure>';
     return header() +
-      '<section class="hero" style="padding:0"><div class="wrap"><div><p class="eyebrow">' + s.eyebrow + '</p><h1>' + s.headline + '</h1><p class="lede">' + s.lede + '</p>' +
+      '<section class="hero"><div class="wrap"><div class="hero-text"><p class="eyebrow">' + s.eyebrow + '</p><h1>' + s.headline + '</h1>' + (s.degree ? '<p class="degree">' + s.degree + '</p>' : '') +
+      '<div class="chips">' + chips(s.focus) + '</div><p class="lede">' + (s.intro || s.lede) + '</p>' +
+      (s.looking ? '<p class="looking">' + s.looking + '</p>' : '') +
       '<div class="btns"><a class="btn primary" href="#projects">See projects</a><a class="btn" href="' + s.resume + '">Resume (PDF)</a><a class="btn" href="' + s.linkedin + '">LinkedIn</a></div></div>' +
-      '<figure><img src="' + img(s.heroImage) + '" alt="' + esc(s.heroCaption) + '"><figcaption>' + s.heroCaption + '</figcaption></figure></div></section>' +
+      visual + '</div></section>' +
       '<section id="projects"><div class="wrap"><p class="kicker">Featured work</p><h2>Projects</h2><p class="sub">' + s.projectsIntro + ' <a href="more.html">Smaller builds &rarr;</a></p><div class="grid">' +
       C.projects.map(card).join('') + '</div></div></section>' +
-      '<section id="experience"><div class="wrap"><div class="cols"><div><p class="kicker">Experience</p><h2>Where I have worked</h2><ul class="tl" style="margin-top:20px">' +
+      '<section id="experience"><div class="wrap"><p class="kicker">Experience</p><h2>Where I have worked</h2><ul class="tl" style="margin-top:20px">' +
       C.experience.map(function (e) {
         var t = e.link ? '<a href="' + e.link + '">' + e.title + '</a>' : e.title;
-        return '<li><span class="when">' + e.dates + '</span><span>' + t + (e.text ? '<br>' + e.text : '') + '</span></li>';
-      }).join('') + '</ul></div><div><p class="kicker">Skills</p><h2>Tools and processes</h2><dl class="skills">' +
-      C.skills.map(function (k) { return '<dt>' + k.group + '</dt><dd>' + k.items + '</dd>'; }).join('') + '</dl></div></div></div></section>' +
+        return '<li><span class="when">' + e.dates + '</span><span class="what"><b>' + t + '</b>' + (e.text ? '<br>' + e.text : '') + '</span></li>';
+      }).join('') + '</ul></div></section>' +
+      '<section id="skills"><div class="wrap"><p class="kicker">Skills</p><h2>Tools and processes</h2><div class="skillgrid">' +
+      C.skills.map(function (k) {
+        var items = Array.isArray(k.items) ? k.items : String(k.items).split(',').map(function (x) { return x.trim(); });
+        return '<div class="skillcard"><h4>' + k.group + '</h4><div class="chips dark">' + chips(items) + '</div></div>';
+      }).join('') + '</div></div></section>' +
       (L ? '<section id="leadership"><div class="wrap"><p class="kicker">Beyond engineering</p><h2>' + L.title + '</h2><p class="sub" style="margin-bottom:16px">' + L.text + '</p><a class="btn" href="' + L.link + '">' + L.linkLabel + '</a></div></section>' : '') +
-      '<section id="contact" style="border:0"><div class="wrap"><p class="kicker">Contact</p><h2>Get in touch</h2><p class="sub">' + s.contactIntro + '</p><div class="btns"><a class="btn primary" href="mailto:' + s.email + '">' + s.email + '</a><a class="btn" href="' + s.linkedin + '">LinkedIn</a><a class="btn" href="' + s.resume + '">Download resume</a></div></div></section>' +
+      '<section id="contact" style="border:0"><div class="wrap"><p class="kicker">Contact</p><h2>Get in touch</h2><p class="sub">' + s.contactIntro + '</p><div class="crows"><a href="mailto:' + s.email + '"><span>Email</span><b>' + s.email + '</b><i>&rarr;</i></a><a href="' + s.linkedin + '"><span>LinkedIn</span><b>Connect on LinkedIn</b><i>&rarr;</i></a><a href="' + s.resume + '"><span>Resume</span><b>Download resume (PDF)</b><i>&rarr;</i></a></div></div></section>' +
       footer();
   }
 
@@ -79,17 +90,35 @@
     var spec = p.spec.map(function (k) { return '<div><dt>' + k[0] + '</dt><dd>' + k[1] + '</dd></div>'; }).join('');
     return header() + '<div class="wrap"><div class="crumb"><a href="index.html#projects">&larr; All projects</a></div>' +
       '<div class="cs-head"><p class="kicker">' + p.kicker + '</p><h1>' + p.title + '</h1>' + tagsHtml(p.tags).replace('class="tags"', 'class="tags" style="margin-bottom:16px"') +
-      '<p class="lede" style="margin:0">' + p.lede + '</p><dl class="spec">' + spec + '</dl></div>' +
+      '<p class="lede" style="margin:0">' + p.lede + '</p>' +
+      (p.stats && p.stats.length ? '<div class="stats">' + p.stats.map(function (x) { return '<div><b>' + x[0] + '</b><span>' + x[1] + '</span></div>'; }).join('') + '</div>' : '') +
+      '<dl class="spec">' + spec + '</dl></div>' +
       '<div class="article"><aside class="toc">' + toc + '</aside><article class="prose">' + body + '<div class="pager">' +
       (prev ? '<a href="project.html?p=' + prev.id + '">&larr; ' + prev.title + '</a>' : '<span></span>') +
       (next ? '<a href="project.html?p=' + next.id + '">' + next.title + ' &rarr;</a>' : '<span></span>') + '</div></article></div></div>' + footer();
   }
 
   function more() {
-    return header() + '<section style="border:0"><div class="wrap"><p class="kicker">Smaller builds</p><h2>More projects</h2><p class="sub">Shorter coursework projects, each with a note on how much was mine.</p><div class="grid two">' +
+    return header() + '<section style="border:0"><div class="wrap"><p class="kicker">Smaller builds</p><h2>More projects</h2><p class="sub">Shorter coursework projects that taught me something specific about manufacturing and design.</p><div class="grid two">' +
       C.more.map(function (m) {
         return '<div class="card" style="cursor:default"><img src="' + img(m.image) + '" alt="' + esc(m.title) + '" loading="lazy"><div class="body">' + tagsHtml(m.tags) + '<h3>' + m.title + '</h3><p>' + m.text + '</p></div></div>';
       }).join('') + '</div></div></section>' + footer();
+  }
+
+  /* Click any project photo to see it full size */
+  if (typeof document !== 'undefined') {
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.tagName === 'IMG' && t.closest && t.closest('.fig, .photo, .card')) {
+        if (t.closest('a.card')) return;
+        var o = document.createElement('div');
+        o.className = 'lightbox';
+        o.innerHTML = '<img src="' + t.src + '" alt="' + (t.alt || '') + '"><span>Click anywhere to close</span>';
+        o.onclick = function () { o.remove(); };
+        document.addEventListener('keydown', function k(ev) { if (ev.key === 'Escape') { o.remove(); document.removeEventListener('keydown', k); } });
+        document.body.appendChild(o);
+      }
+    });
   }
 
   var api = { home: home, project: project, more: more, C: C };
