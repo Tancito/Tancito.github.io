@@ -137,3 +137,11 @@ table{border-collapse:collapse;width:100%;font-size:15px;margin:10px 0 18px}th,t
 .crows a b{font-weight:500}.crows a i{font-style:normal;color:var(--accent)}
 .crows a:hover{background:var(--panel);color:var(--accent-ink)}
 @media(max-width:560px){.stats div{border-right:0;border-bottom:1px solid var(--rule)}.crows a{grid-template-columns:80px 1fr auto}}
+/* ===== v4: name-first hero, simpler contribution box ===== */
+.hero h1{font-size:clamp(38px,5.2vw,60px);margin-bottom:10px}
+.hero .tagline{font-size:clamp(19px,2.4vw,24px);font-weight:500;color:#f0a15c;margin:0 0 14px;letter-spacing:-.005em}
+.role{display:block}
+.role>div.mine{padding:14px 18px}
+.role .with{margin:0;padding:12px 18px;border-top:1px solid var(--rule);font-size:15px;color:var(--mute)}
+.role .with b{color:var(--ink);font-weight:600}
+.role>div+div{border-left:0}

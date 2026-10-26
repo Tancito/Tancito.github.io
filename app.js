@@ -21,8 +21,8 @@
     if (b.flow) return '<div class="flow">' + b.flow.map(function (s) { return '<div><b>' + s[0] + '</b>' + s[1] + '</div>'; }).join('') + '</div>';
     if (b.role) {
       var li = function (xs) { return xs.map(function (x) { return '<li>' + x + '</li>'; }).join(''); };
-      return '<div class="role"><div class="mine"><h4>' + (b.role.mineTitle || 'My contribution') + '</h4><ul>' + li(b.role.mine) + '</ul></div><div class="team"><h4>' +
-        (b.role.teamTitle || 'Team context') + '</h4><ul>' + li(b.role.team) + '</ul></div></div>';
+      return '<div class="role"><div class="mine"><h4>' + (b.role.mineTitle || 'My contribution') + '</h4><ul>' + li(b.role.mine) + '</ul></div>' +
+        (b.role.team && b.role.team.length ? '<p class="with"><b>' + (b.role.teamTitle && b.role.teamTitle !== 'What the team did' ? b.role.teamTitle : 'Built with the team') + '.</b> ' + b.role.team.join(' ') + '</p>' : '') + '</div>';
     }
     if (b.images) {
       var one = b.images.length === 1;
@@ -58,7 +58,7 @@
       ? '<figure class="photo"><img src="' + img(s.photo) + '" alt="' + esc(s.fullName) + '">' + (s.photoCaption ? '<figcaption>' + s.photoCaption + '</figcaption>' : '') + '</figure>'
       : '<figure class="photo wide"><img src="' + img(s.heroImage) + '" alt="' + esc(s.heroCaption) + '"><figcaption>' + s.heroCaption + '</figcaption></figure>';
     return header() +
-      '<section class="hero"><div class="wrap"><div class="hero-text"><p class="eyebrow">' + s.eyebrow + '</p><h1>' + s.headline + '</h1>' + (s.degree ? '<p class="degree">' + s.degree + '</p>' : '') +
+      '<section class="hero"><div class="wrap"><div class="hero-text"><p class="eyebrow">' + s.eyebrow + '</p><h1>' + s.fullName + '</h1><p class="tagline">' + s.headline + '</p>' + (s.degree ? '<p class="degree">' + s.degree + '</p>' : '') +
       '<div class="chips">' + chips(s.focus) + '</div><p class="lede">' + (s.intro || s.lede) + '</p>' +
       (s.looking ? '<p class="looking">' + s.looking + '</p>' : '') +
       '<div class="btns"><a class="btn primary" href="#projects">See projects</a><a class="btn" href="' + s.resume + '">Resume (PDF)</a><a class="btn" href="' + s.linkedin + '">LinkedIn</a></div></div>' +

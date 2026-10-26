@@ -18,9 +18,9 @@ window.PORTFOLIO = {
 
   /* ---------- HOME PAGE ---------- */
   site: {
-    name: "Sebastian Fernandez",
+    name: "Sebastian Fernandez Del Castillo",
     fullName: "Sebastian Fernandez Del Castillo",
-    eyebrow: "Sebastian Fernandez Del Castillo",
+    eyebrow: "The University of Texas at Austin",
     headline: "I design, build and test mechanical systems.",
     degree: "B.S. Mechanical Engineering, The University of Texas at Austin, December 2027",
     focus: ["Design", "Manufacturing", "Systems", "Process engineering"],
@@ -28,7 +28,7 @@ window.PORTFOLIO = {
     looking: "Looking for internships and co-ops in automotive, aerospace, robotics and advanced manufacturing.",
     /* To add your photo: upload it (example: headshot.jpg) and set photo: "headshot".
        Leave photo as "" to show the ASCEND photo instead. */
-    photo: "",
+    photo: "headshot",
     photoCaption: "",
     heroImage: "ascend-atv",
     heroCaption: "The ASCEND hybrid aerial-terrestrial robot platform, with the avionics enclosure I designed and fabricated.",
@@ -127,9 +127,9 @@ window.PORTFOLIO = {
                   "Coordinated with the mechatronics team as servo-control hardware and battery requirements changed",
                 ],
                 team: [
-                  "The mechatronics team defined the servo-control hardware and battery needs the enclosure had to accommodate",
+                  "The mechatronics team defined the servo-control hardware and battery needs, and we adjusted the design together as they changed.",
                 ],
-                teamTitle: "Worked with",
+                teamTitle: "Built with",
               },
             },
           ],
@@ -153,6 +153,15 @@ window.PORTFOLIO = {
           title: "Approach and decisions",
           blocks: [
             { p: "<b>Layout first, box second.</b> I planned where each component would sit before drawing panels, then built the enclosure around that layout. Cable routing and component-specific placement drove the cutouts, not the other way around." },
+            {
+              images: [
+                [
+                  "avionics-schematic",
+                  "Early avionics wiring block diagram (Feb 2025) used to plan component placement. It kept changing as the hardware evolved.",
+                ],
+              ],
+              contain: true,
+            },
             { p: "<b>Laser-cut panels with tab-and-slot joints.</b> Flat panels assemble quickly and a revised panel can be recut easily. That mattered because the electronics configuration kept changing." },
             { p: "<b>Ventilation and removable access built into the panels</b> so the enclosure could be opened for maintenance and modification." },
             { p: "<b>Battery compartments and servo-switch hardware</b> were accommodated, with dedicated batteries for avionics and for actuation." },
@@ -219,10 +228,10 @@ window.PORTFOLIO = {
           title: "Overview",
           blocks: [
             { p: "ASCEND's vehicle combines an ATV platform, a parafoil, a propulsion system, steering actuation and avionics. Production meant making those subsystems fit together on one vehicle, and making sure parts actually got fabricated, by people who could do it safely." },
-            { p: "This was a team effort, so each section says what was mine and what was not. The avionics enclosure, which I designed myself, has its own <a href='project.html?p=avionics-enclosure'>case study</a>." },
+            { p: "This was a team effort across avionics, actuation, steering and propulsion. The avionics enclosure has its own <a href='project.html?p=avionics-enclosure'>case study</a>." },
             {
               images: [
-                ["ascend-atv", "The ASCEND ATV platform"],
+                ["ascend-atv", "ASCEND ATV platform, early configuration"],
                 ["propulsion-cage", "Propulsion cage and propeller"],
               ],
             },
@@ -252,19 +261,20 @@ window.PORTFOLIO = {
               role: {
                 mine: [
                   "Planned the move from standalone setup to ATV integration",
+                  "Helped develop the mount CAD and could walk through how each part was modeled",
                   "Led CAD reviews and prototype iterations against the constraints above",
                   "Coordinated prototype development",
                 ],
                 team: [
-                  "Team members developed the detailed mount CAD, with design reviews led by me",
+                  "Developed with teammates through CAD reviews and 3D-printed prototypes.",
                 ],
               },
             },
             {
               images: [
+                ["actuator-test", "Standalone actuator test setup"],
                 ["actuator-frame", "Actuator on the ATV frame"],
                 ["actuator-mount1", "Early printed mount at the rail"],
-                ["actuator-atv", "Vehicle layout for integration"],
               ],
             },
           ],
@@ -279,7 +289,7 @@ window.PORTFOLIO = {
               ],
             },
             { p: "A steering plate had to go from a drawing to a machined part so the steering system could be assembled and tested." },
-            { p: "Starting from a teammate's plate design, I worked with a shop employee to prepare the Fusion 360 CAM workflow from the plate DXF. Hole recognition needed troubleshooting, so we organized the job into clear operations: surfacing, drilling, outer profiling, tabs for holding the part, and tool changes." },
+            { p: "Working with a shop employee, I prepared the Fusion 360 CAM workflow from the plate DXF. Hole recognition needed troubleshooting, so we organized the job into clear operations: surfacing, drilling, outer profiling, tabs for holding the part, and tool changes." },
             { p: "<b>A sourcing decision.</b> The preferred stock dimensions were unavailable. A teammate and I decided to use thicker stock and surface it down to the final dimensions, trading extra machining for a part we could actually get." },
             { p: "The finished plate moved the steering subsystem into physical assembly and functional testing." },
             {
@@ -304,8 +314,12 @@ window.PORTFOLIO = {
             { p: "The stands needed to be rigid enough for repeatable testing and easy to modify as test needs changed. Testing off the vehicle let the team troubleshoot hardware and collect early data without waiting for full integration." },
             {
               images: [
-                ["teststand-a", "Actuator and parafoil test frame"],
-                ["teststand-b", "Test stand structure"],
+                ["teststand-b", "Test stand with the vehicle"],
+                ["teststand-c", "Tall stand used for testing"],
+                [
+  "propulsion-cage",
+  "Propulsion static-test setup: motor and propeller in the cage",
+],
               ],
             },
           ],
@@ -406,14 +420,12 @@ window.PORTFOLIO = {
             {
               role: {
                 mine: [
-                  "Led fabrication and assembly of the physical car",
-                  "Brought together chassis, steering, drivetrain, wheels and tires, electronics and fasteners",
-                  "Contributed to testing",
+                  "Led fabrication and assembly of the complete car",
+                  "Integrated the chassis, steering, drivetrain, wheels and tires, electronics packaging and fasteners into one working vehicle",
+                  "Took part in testing and race day",
                 ],
                 team: [
-                  "Our team designed the car, including CAD and printed parts",
-                  "Team calculations covered gear ratio and torque-speed tradeoffs",
-                  "Team chassis FEA checked durability before fabrication",
+                  "Designed together with my teammates, who developed the CAD and printed parts, the gear-ratio and torque-speed calculations, and the chassis FEA that guided the build.",
                 ],
               },
             },
@@ -644,8 +656,7 @@ window.PORTFOLIO = {
                   "Tested and troubleshot the machine",
                 ],
                 team: [
-                  "The team did the detailed position and velocity analysis behind the cam profiles",
-                  "Other team members did most of the CAD and programming",
+                  "The team developed the detailed position and velocity analysis, CAD and programming behind the cam profiles.",
                 ],
               },
             },
@@ -770,7 +781,7 @@ window.PORTFOLIO = {
   more: [
     { image: "spinner-part", title: "Fidget Spinner", tags: [["Individual design", "own"], ["SolidWorks, FEA", ""]], text: "I modeled the spinner in SolidWorks using circular patterns, ran FEA on stress distribution and factor of safety, and made prototypes by 3D printing and laser cutting. The challenge was fit between a press-fit bearing, weighted inserts and the manufactured body, where small dimensional errors caused misfits. It taught me to validate CAD assumptions against physical parts and to account for tolerancing." },
     { image: "stand-a", title: "Sheet Metal Phone Stand", tags: [["Fabrication", "own"], ["Manufacturing processes", ""]], text: "A two-piece stand made from flat stock using a shear, notching, a bead roller, a press brake and resistance spot welding. Manual operations accumulate error, so cutting and bend accuracy decided how the pieces fit." },
-    { image: "slider-part", title: "Slider-Crank Mechanism", tags: [["Fabrication and assembly", "own"], ["Team design", ""]], text: "A hand-actuated slider-crank that lifts a 1 lb load, built from laser-cut and 3D-printed parts on dual guide rods. I helped laser-cut and assemble it, then adjust alignment and pivot clearances to reduce friction. The mechanism design and kinematic analysis were not mine." },
-    { image: "audio-board", title: "Analog Audio Frequency Visualizer", tags: [["Team project", ""]], text: "An analog circuit (input buffer, high- and low-pass filters, amplifiers, peak detectors, comparators) that lights a green LED near 150 Hz and a red LED near 2830 Hz. This was a team project and I was not the primary person responsible for building the full circuit." },
+    { image: "slider-part", title: "Slider-Crank Mechanism", tags: [["Fabrication and assembly", "own"], ["Team design", ""]], text: "A hand-actuated slider-crank that lifts a 1 lb load, built from laser-cut and 3D-printed parts on dual guide rods. I helped laser-cut and assemble it, then adjust alignment and pivot clearances to reduce friction. The mechanism design and kinematic analysis were a team effort." },
+    { image: "audio-board", title: "Analog Audio Frequency Visualizer", tags: [["Team project", ""]], text: "An analog circuit (input buffer, high- and low-pass filters, amplifiers, peak detectors, comparators) that lights a green LED near 150 Hz and a red LED near 2830 Hz. Our team built and tuned it together." },
   ],
 };
