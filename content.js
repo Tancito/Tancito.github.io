@@ -237,8 +237,8 @@ window.PORTFOLIO = {
             {
               images: [
                 [
-  "ascend-platform-spring26",
-  "ASCEND platform at the end of spring 2026, with the propulsion cage structure",
+  "ascend-cage-platform",
+  "ASCEND platform with the propulsion cage attached (late spring to summer 2026)",
 ],
                 ["ascend-atv", "Early configuration (spring 2025)"],
               ],
@@ -264,12 +264,18 @@ window.PORTFOLIO = {
             },
             { p: "The parafoil is steered with linear actuators. They began on a standalone test arrangement, and the goal was to move them onto the ATV for steering tests." },
             { p: "<b>Constraints:</b> actuator stroke and travel, alignment and side loads, mounting stiffness and support locations, clearance to the frame and cage, and interference with propulsion and surrounding structure." },
-            { p: "<b>Decisions:</b> the team explored several mounting approaches through CAD reviews and 3D-printed prototypes, and moved toward U-bolts and machined plates for better packaging, stiffness and cage clearance." },
+            { p: "<b>Design progression.</b> Each concept was a different answer to the same question: where the actuator load acts relative to the frame, and how much moment arm and side loading that creates." },
+            { list: [
+  "<b>Standalone setup:</b> actuators on an aluminum extrusion frame, used for the first parafoil steering tests.",
+  "<b>First ATV mount:</b> printed mounts low on the bottom rails, keeping the layout close to a powered-parachute design.",
+  "<b>Puzzle-piece mount:</b> a three-piece printed design between the top rails, with a middle piece connecting both ends.",
+  "<b>Frame-integrated vertical mount:</b> CNC plates and U-bolts clamping extrusion to the top and bottom rails, for better packaging, stiffness and cage clearance.",
+] },
             {
               role: {
                 mine: [
                   "Planned the move from standalone setup to ATV integration",
-                  "Helped develop the mount CAD and could walk through how each part was modeled",
+                  "Helped develop the mount CAD",
                   "Led CAD reviews and prototype iterations against the constraints above",
                   "Coordinated prototype development",
                 ],
@@ -281,8 +287,8 @@ window.PORTFOLIO = {
             {
               images: [
                 ["actuator-test", "Standalone actuator test setup"],
-                ["actuator-frame", "Actuator on the ATV frame"],
                 ["actuator-mount1", "Early printed mount at the rail"],
+                ["actuator-frame", "Latest: vertical mount with plates and U-bolts"],
               ],
             },
           ],
@@ -322,11 +328,10 @@ window.PORTFOLIO = {
             { p: "The stands needed to be rigid enough for repeatable testing and easy to modify as test needs changed. Testing off the vehicle let the team troubleshoot hardware and collect early data without waiting for full integration." },
             {
               images: [
-                ["teststand-b", "Test stand with the vehicle"],
-                ["teststand-c", "Tall stand used for testing"],
+                ["teststand-b", "Short stand for actuator and parafoil experiments"],
                 [
   "propulsion-cage",
-  "Propulsion static-test setup: motor and propeller in the cage",
+  "Taller stand holding the motor and propeller cage for propulsion static tests",
 ],
               ],
             },
@@ -379,7 +384,8 @@ window.PORTFOLIO = {
             { p: "By the end of spring 2026 the team had moved from separate subsystem work to a vehicle that drives and carries its own hardware:" },
             { list: [
   "Steering plate and components integrated early in the semester, with refinement continuing into April.",
-  "Linear actuators running under Raspberry Pi control and tested with the parafoil setup, strain gauges and a Jetson camera, then moved from a puzzle-piece mount toward frame-integrated, clamp and U-bolt mounts.",
+  "Linear actuators running under Raspberry Pi control and tested with the parafoil setup, strain gauges and a Jetson camera.",
+  "Actuator mounting moved from the puzzle-piece design to a frame-integrated vertical mount with plates and U-bolts, refined into late spring.",
   "A cage-to-ATV support structure became the central workstream. The cage was assembled and a wood-and-extrusion prototype used to test rigidity and cage angle before final fabrication.",
   "The ATV was moving by early April, and new braking components were purchased.",
 ] },
@@ -518,7 +524,7 @@ window.PORTFOLIO = {
       id: "react",
       title: "REACT: Reaction-Wheel Magnetic Test Setup",
       cardPos: "",
-      cardImage: "react-board-photo",
+      cardImage: "react-board-front",
       cardOrg: "Texas Spacecraft Lab",
       cardBlurb: "Test layouts and materials for a reaction-wheel magnetic experiment, plus cooling concepts for the motor and coil.",
       cardTags: [
@@ -548,14 +554,8 @@ window.PORTFOLIO = {
             { p: "REACT investigates magnetic-field behavior from a motor-driven flywheel (a reaction wheel) in a controlled test environment. The setup involves the wheel and motor, magnetometers, cameras, electronics, test fixtures and a Helmholtz coil, all arranged so that nothing in the hardware disturbs what the magnetometers measure." },
             {
               images: [
-                [
-                  "react-board-photo",
-                  "The test board as it stands this fall: motor, speed controller, printed flywheel stand-ins and mounts",
-                ],
-                [
-                  "react-board-cad",
-                  "SolidWorks assembly of the test board with a placeholder flywheel and coil",
-                ],
+                ["react-board-front", "Current test board: motor and aluminum flywheel with printed mounts, holders and supports"],
+                ["react-board-top", "Top view of the same board"],
               ],
             },
           ],
@@ -568,64 +568,15 @@ window.PORTFOLIO = {
               role: {
                 mine: [
                   "Developed SolidWorks test-layout concepts: an optical-table variant and a camera-slider variant",
-                  "Compared candidate materials for the test field with the team",
+                  "Researched non-ferromagnetic material options for the test environment",
                   "Put together the SolidWorks assembly of the current test board",
                   "Developing proof-of-concept cooling designs for the motor and Helmholtz coil",
                 ],
                 team: [
-                  "Teammates built the damping and mounting hardware shown below, prototyped the magnetometer holder, and are building a winding fixture for the Helmholtz coil.",
+                  "Damping, mounting and support hardware for the setup was built with teammates.",
                 ],
               },
             },
-          ],
-        },
-        {
-          id: "timeline",
-          title: "How it developed",
-          blocks: [
-            {
-              table: [
-                ["When", "What happened"],
-                ["Summer 2025", "Material research and first test-field layout concepts"],
-                [
-  "Fall 2025",
-  "Optical-table test field designed; platform and motor configuration research (Oct 2025)",
-],
-                ["Spring 2026", "Team built damper and mount hardware for the table"],
-                [
-  "Fall 2026",
-  "Helmholtz coil added; test board assembled; cooling proof-of-concepts",
-],
-              ],
-            },
-          ],
-        },
-        {
-          id: "materials",
-          title: "Material decision",
-          blocks: [
-            { p: "Anything near the magnetometers cannot be ferromagnetic, so steel and iron were out for the test field. The team compared the options:" },
-            {
-              table: [
-                ["Option", "For", "Against"],
-                [
-  "Titanium",
-  "Best magnetic cleanliness; strong",
-  "Expensive, among the hardest metals to machine",
-],
-                [
-  "Carbon fiber",
-  "Durable, accessible",
-  "Needs resin to join; induces eddy currents",
-],
-                [
-  "Aluminum 6061",
-  "Light, strong, affordable, easy to machine",
-  "Slightly paramagnetic; eddy currents possible",
-],
-              ],
-            },
-            { p: "The team chose <b>aluminum 6061</b> for the test field, with <b>fiberglass</b> around the magnetometers. Fiberglass is not conductive, so it avoids eddy currents exactly where the sensors are most sensitive." },
           ],
         },
         {
@@ -646,15 +597,7 @@ window.PORTFOLIO = {
             {
               images: [
                 ["react-layout", "Optical-table test field (SolidWorks)"],
-              ],
-            },
-            { p: "Spring 2026 hardware built by the team for the table: leg damper, damper rod, mount stabilizer and mount shelf." },
-            {
-              images: [
-                ["react-a", "Table-leg damper"],
-                ["react-b", "Damper rod"],
-                ["react-c", "Mount stabilizer"],
-                ["react-d", "Mount shelf"],
+                ["react-tower", "Printed standing structure for the test board"],
               ],
               contain: true,
             },
@@ -706,7 +649,7 @@ window.PORTFOLIO = {
       ],
       lede: "A fully mechanical machine that turns one motor input into coordinated X, Y and pen-lift motion, with no sensors and no programming.",
       spec: [
-        ["Role", "Concept discussions, prototyping, assembly and testing"],
+        ["Role", "Cam analysis, CAD, prototyping, assembly and testing"],
         ["Period", "Aug - Dec 2025"],
         ["Tools", "3D printing, hand tools"],
         ["Result", "Working mechanical drawing system"],
@@ -748,13 +691,13 @@ window.PORTFOLIO = {
             {
               role: {
                 mine: [
-                  "Took part in concept discussions",
-                  "Contributed to early physical prototypes",
+                  "Took part in concept discussions and early physical prototypes",
+                  "Worked through the cam position and velocity analysis, CAD and programming with the team",
                   "Assembled the cam, follower, slider, spring and linkage systems",
                   "Tested and troubleshot the machine",
                 ],
                 team: [
-                  "The team developed the detailed position and velocity analysis, CAD and programming behind the cam profiles.",
+                  "Designed and built together as a team project.",
                 ],
               },
             },
@@ -795,20 +738,16 @@ window.PORTFOLIO = {
         ["Research", ""],
       ],
       kicker: "ARTS Lab &middot; Student researcher, May - Jul 2025",
-      stats: [
-        ["< 1 mm", "tip error at 40 of 44 stage-2 obstacle positions"],
-        ["11", "actuation positions per test, 0 to 25 mm"],
-        ["10", "test conditions: left and right, free plus four obstacle cases"],
-      ],
+      stats: [],
       tags: [
         ["Research", "own"],
         ["Data analysis", ""],
       ],
       lede: "Checking how well fiber-optic sensing can reconstruct the shape of a flexible surgical screw as it bends, using motion capture as ground truth, then animating the screw along the reconstructed shapes.",
       spec: [
-        ["Role", "Student researcher: data processing, calibration, visualization"],
+        ["Role", "Student researcher: data analysis and visualization"],
         ["Period", "May - Jul 2025"],
-        ["Tools", "MATLAB, Python, SolidWorks"],
+        ["Tools", "MATLAB"],
         ["Equipment", "LUNA fiber-optic sensing, VICON motion capture"],
       ],
       sections: [
@@ -839,14 +778,12 @@ window.PORTFOLIO = {
             {
               role: {
                 mine: [
-                  "Learned the setup from the lab's prior theses and a tutorial, then ran the shape-accuracy MATLAB pipeline on test data",
-                  "Calibrated the inputs (origin, tip, marker intervals) to align LUNA reconstructions with VICON, and placed the obstacle model",
-                  "Plotted strain, curvature and shape comparisons and wrote up the procedure",
-                  "Put together a presentation summarizing the procedure, data and results",
-                  "Converted the screw model into a 2D outline and animated its bending in MATLAB",
+                  "Learned the lab's setup and ran the MATLAB shape-accuracy analysis on the test data",
+                  "Calibrated the data so the fiber-optic and motion-capture shapes could be compared directly",
+                  "Plotted strain, curvature and error comparisons, and presented the procedure and data",
                 ],
                 team: [
-                  "The lab built the flexible screw, the fiber-optic sensing and the shape-reconstruction methods, and a PhD student guided my analysis.",
+                  "The lab built the flexible screw, the sensing and the reconstruction methods, and a PhD student guided my analysis.",
                 ],
               },
             },
@@ -856,86 +793,20 @@ window.PORTFOLIO = {
           id: "tests",
           title: "What was tested",
           blocks: [
-            { p: "Each data set bends the screw in eleven steps (positions 0 to 10). A ball screw with a 5 mm lead is driven a half revolution per step, so each step moves the actuator 2.5 mm and the full set covers 25 mm of travel. Tests were repeated on the left and right sides:" },
-            {
-              table: [
-                ["Condition", "What it is"],
-                ["Free bending", "No obstacle"],
-                [
-  "Round obstacle, stage 1 and stage 2",
-  "Screw bends around a rounded obstacle at two placements",
-],
-                [
-  "Sharp obstacle, stage 1 and stage 2",
-  "Screw bends against a sharp-edged obstacle at two placements",
-],
-              ],
-            },
-          ],
-        },
-        {
-          id: "pipeline",
-          title: "Analysis pipeline",
-          blocks: [
-            { list: [
-  "<b>Strain to shape:</b> read strain from the sensor data, convert it to curvature, then build the 2D shape.",
-  "<b>Ground truth:</b> import VICON marker positions, average them, and measure the intervals between markers.",
-  "<b>Calibration:</b> adjust the sensor origin and tip while holding the sensor length at 17 cm, and update the marker intervals, until the two shapes line up.",
-  "<b>Obstacle:</b> load the obstacle model and rotate and translate it into position from the recorded coordinates.",
-  "<b>Error:</b> compute tip error, average shape error and curve length for each position.",
-] },
-            { p: "A few positions took real troubleshooting. Inputs that brought the tip error under 1 mm at one position left it far higher at others, so I compared my numbers and code against teammates' and the tutorial until the alignment made sense." },
+            { p: "Each test bends the screw in eleven steps across 25 mm of actuator travel, on both the left and right sides. Conditions covered free bending with no obstacle, and bending around round and sharp obstacles." },
           ],
         },
         {
           id: "results",
           title: "Results",
           blocks: [
-            { p: "Across the stage 2 obstacle tests, tip error stayed under 1 mm at 40 of 44 positions. Free bending and the stage 1 tests showed larger errors, up to about 5 mm at full actuation." },
+            { p: "Reconstructed shapes tracked the motion-capture reference closely at most positions in the obstacle tests, with larger errors in free bending. I also plotted how the strain signal changes with motor displacement for free, round and sharp bending." },
             {
               images: [
-                [
-                  "arts-left-free",
-                  "Left-side free bending: photo, reconstructed shape, and tip and shape error at each of the eleven positions",
-                ],
+                ["arts-strain-stage1", "Strain derivatives vs. motor displacement, left side"],
+                ["arts-strain-stage2", "Strain derivatives vs. motor displacement, left side, second obstacle placement"],
               ],
             },
-            { p: "I also plotted the first and second derivatives of strain against motor displacement for free, round and sharp bending, to see how the strain signal differs between the three cases." },
-            {
-              images: [
-                ["arts-strain-stage1", "Strain derivatives, left side, stage 1"],
-                ["arts-strain-stage2", "Strain derivatives, left side, stage 2"],
-              ],
-            },
-          ],
-        },
-        {
-          id: "modeling",
-          title: "Animating the screw",
-          blocks: [
-            { p: "In a follow-up modeling task I turned the reconstructed shapes into an animation of the screw itself. I imported the 3D screw model into SolidWorks, exported a 2D outline as a DXF, and used Python to pull out the outline coordinates and the screw's centerline." },
-            { p: "In MATLAB I split the screw into a rigid base and a flexible section, anchored the base to the start of the bending path, and warped the flexible section along the curvature path from the last 50 frames of sensor data. The result shows how the screw would physically deform as it bends." },
-            {
-              images: [
-                ["arts-screw-model", "2D outline of the screw used as animation input"],
-                [
-  "arts-screw-bend",
-  "Animation frame: flexible section following a reconstructed curvature path",
-],
-              ],
-              contain: true,
-            },
-          ],
-        },
-        {
-          id: "takeaways",
-          title: "Takeaways",
-          blocks: [
-            { list: [
-  "Comparing a sensor with a reference measurement is mostly alignment work, and it has to come first.",
-  "Strain, curvature and error plots tell you whether a result deserves trust.",
-  "Turning raw data into a picture someone can read is a skill of its own.",
-] },
           ],
         },
       ],
