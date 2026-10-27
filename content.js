@@ -1233,7 +1233,7 @@ window.PORTFOLIO = {
         },
         {
           "id": "challenge",
-          "title": "Design challenge",
+          "title": "Research question",
           "blocks": [
             {
               "p": "To steer a flexible screw safely you need to know its shape while it is inside the body. The approach here is to infer the shape from fiber-optic strain readings. My question: how closely does that reconstructed shape match what motion capture measures?"
@@ -1242,7 +1242,7 @@ window.PORTFOLIO = {
         },
         {
           "id": "process",
-          "title": "Design process",
+          "title": "Methods",
           "blocks": [
             {
               "h3": "What was tested"
@@ -1283,7 +1283,7 @@ window.PORTFOLIO = {
         },
         {
           "id": "outcome",
-          "title": "Outcome",
+          "title": "Results",
           "blocks": [
             {
               "p": "Reconstructed shapes tracked the motion-capture reference closely at most positions in the obstacle tests, with larger errors in free bending. I also plotted how the strain signal changes with motor displacement for free, round and sharp bending."
