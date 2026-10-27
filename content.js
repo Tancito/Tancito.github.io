@@ -58,6 +58,7 @@ window.PORTFOLIO = {
   /* ---------- CURRENTLY WORKING ON (short cards on the home page) ---------- */
   now: [
     { title: "REACT: cooling concepts", text: "Proof-of-concept designs to cool the motor and Helmholtz coil without disturbing the magnetometers.", link: "project.html?p=react" },
+    { title: "Senior design: fluid test bench", text: "With a team of five, designing a closed-loop test bench for Longhorn Racing Electric that circulates and heats fluid through a cooling component and logs flow, pressure and temperature. I lead physical prototyping and logistics. Currently in requirements and concept generation.", link: "" },
     { title: "Longhorn Lemons", text: "Hands-on automotive racing team at UT Austin.", link: "" },
   ],
 
@@ -238,7 +239,7 @@ window.PORTFOLIO = {
               images: [
                 [
   "ascend-cage-platform",
-  "ASCEND platform with the propulsion cage attached (late spring to summer 2026)",
+  "ASCEND platform with the propulsion cage attached",
 ],
                 ["ascend-atv", "Early configuration (spring 2025)"],
               ],
@@ -554,10 +555,11 @@ window.PORTFOLIO = {
             { p: "REACT investigates magnetic-field behavior from a motor-driven flywheel (a reaction wheel) in a controlled test environment. The setup involves the wheel and motor, magnetometers, cameras, electronics, test fixtures and a Helmholtz coil, all arranged so that nothing in the hardware disturbs what the magnetometers measure." },
             {
               images: [
-                ["react-board-front", "Current test board: motor and aluminum flywheel with printed mounts, holders and supports"],
+                ["react-board-front", "Test board with the motor, aluminum flywheel and printed mounts"],
                 ["react-board-top", "Top view of the same board"],
               ],
             },
+            { p: "These photos show part of the setup. The damping hardware, magnetometer supports and Helmholtz coil are not in these shots." },
           ],
         },
         {
@@ -597,7 +599,22 @@ window.PORTFOLIO = {
             {
               images: [
                 ["react-layout", "Optical-table test field (SolidWorks)"],
-                ["react-tower", "Printed standing structure for the test board"],
+              ],
+            },
+            { h3: "Supporting hardware" },
+            { p: "The test setup also relies on damping hardware, mounts and holders for the magnetometers, built with teammates. A few of the printed and machined pieces:" },
+            {
+              images: [
+                ["react-tower", "Printed standing structure"],
+                ["react-a", "Table-leg damper"],
+                ["react-b", "Damper rod"],
+              ],
+              contain: true,
+            },
+            {
+              images: [
+                ["react-c", "Mount stabilizer"],
+                ["react-d", "Mount shelf"],
               ],
               contain: true,
             },
@@ -731,7 +748,7 @@ window.PORTFOLIO = {
       id: "arts",
       title: "Surgical Screw Shape Sensing",
       cardPos: "",
-      cardImage: "arts-screw-bend",
+      cardImage: "arts-rig-obstacle-a",
       cardOrg: "ARTS Lab",
       cardBlurb: "Comparing fiber-optic shape reconstruction against motion capture in MATLAB.",
       cardTags: [
@@ -769,6 +786,11 @@ window.PORTFOLIO = {
                 ["Compare", "Align both in MATLAB and compute tip and shape error"],
               ],
             },
+            {
+              images: [
+                ["arts-ofdr-diagram", "Fiber-optic (OFDR) sensing along a bending beam, schematic"],
+              ],
+            },
           ],
         },
         {
@@ -794,6 +816,13 @@ window.PORTFOLIO = {
           title: "What was tested",
           blocks: [
             { p: "Each test bends the screw in eleven steps across 25 mm of actuator travel, on both the left and right sides. Conditions covered free bending with no obstacle, and bending around round and sharp obstacles." },
+            {
+              images: [
+                ["arts-rig-obstacle-a", "Test rig: the screw bending around an obstacle"],
+                ["arts-rig-obstacle-b", "Another trial in the same rig"],
+              ],
+              contain: true,
+            },
           ],
         },
         {
