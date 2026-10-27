@@ -364,7 +364,7 @@ window.PORTFOLIO = {
               "list": [
                 "<b>Standalone setup:</b> actuators on an aluminum extrusion frame, used for the first parafoil steering tests.",
                 "<b>First ATV mount:</b> printed mounts low on the bottom rails, keeping the layout close to a powered-parachute design.",
-                "<b>Puzzle-piece mount:</b> a three-piece printed design between the top rails, with a middle piece connecting both ends.",
+                "<b>Puzzle-piece mount:</b> a four-piece printed design between the top rails, with a middle piece connecting both ends.",
                 "<b>Frame-integrated vertical mount:</b> CNC plates and U-bolts clamping extrusion to the top and bottom rails, for better packaging, stiffness and cage clearance."
               ]
             },
@@ -870,37 +870,19 @@ window.PORTFOLIO = {
               "h3": "Supporting hardware"
             },
             {
-              "p": "The test setup also relies on damping hardware, mounts and holders for the magnetometers, built with teammates. A few of the printed and machined pieces:"
+              "p": "The test setup also relies on damping hardware, mounts and holders for the magnetometers, built with teammates. A few of the 3D-printed pieces, two for damping and two for mounting:"
             },
             {
               "images": [
-                [
-                  "react-tower",
-                  "Printed standing structure"
-                ],
-                [
-                  "react-a",
-                  "Table-leg damper"
-                ],
-                [
-                  "react-b",
-                  "Damper rod"
-                ]
-              ],
-              "contain": true
+                ["react-sq-a", "Damping: table-leg damper"],
+                ["react-sq-b", "Damping: damper rod"]
+              ]
             },
             {
               "images": [
-                [
-                  "react-c",
-                  "Mount stabilizer"
-                ],
-                [
-                  "react-d",
-                  "Mount shelf"
-                ]
-              ],
-              "contain": true
+                ["react-sq-c", "Mounting: mount stabilizer"],
+                ["react-sq-d", "Mounting: mount shelf"]
+              ]
             },
             {
               "h3": "Cooling the motor and coil"
