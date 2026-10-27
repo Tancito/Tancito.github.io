@@ -722,9 +722,22 @@ window.PORTFOLIO = {
         },
         {
           id: "iterations",
-          title: "From prototype to machine",
+          title: "Design decisions",
           blocks: [
-            { p: "The mechanism progressed from low-fidelity prototypes to a 3D-printed assembly. Testing showed how sensitive cam-driven systems are to synchronization, friction and alignment." },
+            { p: "<b>Three prototype stages</b>, each fixing a problem the last one exposed:" },
+            { list: [
+  "<b>Cardboard, pens and tape:</b> proved the linkage idea, but taped joints flexed and the pen dragged unevenly, so we needed stiffer materials and real joints.",
+  "<b>Wood base and compass arm:</b> smoother and stiffer, but loose joints and elastic parts added variation and the range of motion was too small, so we moved to rigid printed parts.",
+  "<b>3D-printed links on metal rods:</b> accurate and repeatable. The claw that couples each cam to its slider was the fragile part.",
+] },
+            { p: "<b>Checked before printing.</b> We confirmed each slider mechanism has one degree of freedom (Gr&uuml;bler's equation) and modeled slider position and velocity in Python." },
+            { p: "<b>Fixed during testing:</b>" },
+            { list: [
+  "<b>Drooping X-slider:</b> it made the machine top-heavy and the pen contact uneven, so we added a sliding brace underneath, which steadied the motion.",
+  "<b>Motor:</b> a slow 12 V, 27 rpm gearmotor keeps the drawing easy to watch. When the load grew and it stalled, we moved to a higher-torque motor.",
+  "<b>Cam profile trade-off:</b> raw profiles had steep sections that stalled the motor. Smoothing and limiting the slope fixed that, but too much smoothing distorted the drawing, so the profiles balance accuracy against reliability.",
+  "<b>Friction and contact:</b> springs keep each follower on its cam, and lubricant went on the sliding parts.",
+] },
             {
               images: [
                 ["cam-output", "Drawing produced by the machine"],
@@ -823,6 +836,19 @@ window.PORTFOLIO = {
               ],
               contain: true,
             },
+          ],
+        },
+        {
+          id: "process",
+          title: "Lining up the two measurements",
+          blocks: [
+            { p: "The fiber sensor and motion capture measure the same bend in different ways, so before comparing them I had to line them up. For each position I worked in the same order:" },
+            { list: [
+  "Set the spacing between the motion-capture markers.",
+  "Adjust where the sensor data starts and ends, holding the sensor length fixed at 17 cm, until the reconstructed tip landed on the tracked tip.",
+  "Place the obstacle model at the recorded position and angle.",
+] },
+            { p: "Some positions lined up right away, and others did not. When the same inputs left the tip error high at a position, I compared my numbers with a teammate's and with the lab's tutorial to find what was different." },
           ],
         },
         {
