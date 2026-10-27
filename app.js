@@ -65,16 +65,20 @@
       visual + '</div></section>' +
       '<section id="projects"><div class="wrap"><p class="kicker">Featured work</p><h2>Projects</h2><p class="sub">' + s.projectsIntro + ' <a href="more.html">Smaller builds &rarr;</a></p><div class="grid">' +
       C.projects.map(card).join('') + '</div></div></section>' +
-      '<section id="experience"><div class="wrap"><p class="kicker">Experience</p><h2>Where I have worked</h2><ul class="tl" style="margin-top:20px">' +
+      (C.now && C.now.length ? '<section id="now"><div class="wrap"><p class="kicker">Right now</p><h2>Currently working on</h2><div class="nowgrid">' +
+        C.now.map(function (n) {
+          var inner = '<h3>' + n.title + '</h3><p>' + n.text + '</p>';
+          return n.link ? '<a class="nowcard" href="' + n.link + '">' + inner + '</a>' : '<div class="nowcard">' + inner + '</div>';
+        }).join('') + '</div></div></section>' : '') +
+      '<section id="experience"><div class="wrap"><div class="cols"><div><p class="kicker">Experience</p><h2>Where I have worked</h2><ul class="tl" style="margin-top:20px">' +
       C.experience.map(function (e) {
         var t = e.link ? '<a href="' + e.link + '">' + e.title + '</a>' : e.title;
         return '<li><span class="when">' + e.dates + '</span><span class="what"><b>' + t + '</b>' + (e.text ? '<br>' + e.text : '') + '</span></li>';
-      }).join('') + '</ul></div></section>' +
-      '<section id="skills"><div class="wrap"><p class="kicker">Skills</p><h2>Tools and processes</h2><div class="skillgrid">' +
+      }).join('') + '</ul></div><div id="skills"><p class="kicker">Skills</p><h2>Tools and processes</h2><div class="skillstack">' +
       C.skills.map(function (k) {
         var items = Array.isArray(k.items) ? k.items : String(k.items).split(',').map(function (x) { return x.trim(); });
-        return '<div class="skillcard"><h4>' + k.group + '</h4><div class="chips dark">' + chips(items) + '</div></div>';
-      }).join('') + '</div></div></section>' +
+        return '<div class="skillrow"><h4>' + k.group + '</h4><div class="chips dark">' + chips(items) + '</div></div>';
+      }).join('') + '</div></div></div></div></section>' +
       (L ? '<section id="leadership"><div class="wrap"><p class="kicker">Beyond engineering</p><h2>' + L.title + '</h2><p class="sub" style="margin-bottom:16px">' + L.text + '</p><a class="btn" href="' + L.link + '">' + L.linkLabel + '</a></div></section>' : '') +
       '<section id="contact" style="border:0"><div class="wrap"><p class="kicker">Contact</p><h2>Get in touch</h2><p class="sub">' + s.contactIntro + '</p><div class="crows"><a href="mailto:' + s.email + '"><span>Email</span><b>' + s.email + '</b><i>&rarr;</i></a><a href="' + s.linkedin + '"><span>LinkedIn</span><b>Connect on LinkedIn</b><i>&rarr;</i></a><a href="' + s.resume + '"><span>Resume</span><b>Download resume (PDF)</b><i>&rarr;</i></a></div></div></section>' +
       footer();

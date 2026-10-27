@@ -41,7 +41,6 @@ window.PORTFOLIO = {
 
   /* ---------- EXPERIENCE (newest first) ---------- */
   experience: [
-    { dates: "Now", title: "Longhorn Lemons, Member", link: "", text: "Hands-on automotive racing team at UT Austin." },
     { dates: "May 2025 - May 2026", title: "ASCEND Texas, Production Lead", link: "project.html?p=ascend-integration", text: "Led production integration and trained a 5-member shop team. Before that, Mechanical Design &amp; Production Engineer (Jan - May 2025)." },
     { dates: "Jan 2025 - present", title: "Texas Spacecraft Laboratory, REACT Hardware Engineer", link: "project.html?p=react", text: "Test hardware layout for reaction-wheel magnetic measurements; now developing cooling concepts." },
     { dates: "May - Jul 2025", title: "ARTS Lab, Student Researcher", link: "project.html?p=arts", text: "MATLAB analysis of fiber-optic shape sensing against motion capture." },
@@ -56,10 +55,16 @@ window.PORTFOLIO = {
     { group: "Languages", items: ["English", "Spanish (fluent)"] },
   ],
 
+  /* ---------- CURRENTLY WORKING ON (short cards on the home page) ---------- */
+  now: [
+    { title: "REACT: cooling concepts", text: "Proof-of-concept designs to cool the motor and Helmholtz coil without disturbing the magnetometers.", link: "project.html?p=react" },
+    { title: "Longhorn Lemons", text: "Hands-on automotive racing team at UT Austin.", link: "" },
+  ],
+
   /* ---------- LEADERSHIP / COMMUNITY ---------- */
   leadership: {
     title: "Cubes4Good",
-    text: "In 2022 I founded Cubes4Good to teach children facing long-term medical treatment or disabilities how to solve Rubik's Cubes. I designed the instructions, built the website, raised donations to provide free cubes, and organized workshops in Houston, Dallas and Mexico City with MD Anderson, Texas Children's Hospital, Children's Health, Ronald McDonald House Charities and Casa de la Amistad. It has reached 150+ children, and hospital TV broadcasts reached 600+ rooms.",
+    text: "In 2022 I founded Cubes4Good to teach children in long-term medical treatment or with disabilities how to solve Rubik's Cubes. I designed the instructions, built the website, and raised donations for free cubes. Workshops in Houston, Dallas and Mexico City have reached 150+ children, and hospital TV broadcasts reached 600+ rooms.",
     linkLabel: "cubes4good.org",
     link: "https://cubes4good.org",
   },
@@ -231,8 +236,11 @@ window.PORTFOLIO = {
             { p: "This was a team effort across avionics, actuation, steering and propulsion. The avionics enclosure has its own <a href='project.html?p=avionics-enclosure'>case study</a>." },
             {
               images: [
-                ["ascend-atv", "ASCEND ATV platform, early configuration"],
-                ["propulsion-cage", "Propulsion cage and propeller"],
+                [
+  "ascend-platform-spring26",
+  "ASCEND platform at the end of spring 2026, with the propulsion cage structure",
+],
+                ["ascend-atv", "Early configuration (spring 2025)"],
               ],
             },
           ],
@@ -365,8 +373,22 @@ window.PORTFOLIO = {
           ],
         },
         {
+          id: "status",
+          title: "Where ASCEND stands",
+          blocks: [
+            { p: "By the end of spring 2026 the team had moved from separate subsystem work to a vehicle that drives and carries its own hardware:" },
+            { list: [
+  "Steering plate and components integrated early in the semester, with refinement continuing into April.",
+  "Linear actuators running under Raspberry Pi control and tested with the parafoil setup, strain gauges and a Jetson camera, then moved from a puzzle-piece mount toward frame-integrated, clamp and U-bolt mounts.",
+  "A cage-to-ATV support structure became the central workstream. The cage was assembled and a wood-and-extrusion prototype used to test rigidity and cage angle before final fabrication.",
+  "The ATV was moving by early April, and new braking components were purchased.",
+] },
+            { p: "The team is now working toward the GoAERO Final Fly-Off, which requires a flying prototype. Qualifying closes in December 2026 and the Fly-Off is scheduled for February 2027 at NASA Ames. My Production Lead term ran through May 2026." },
+          ],
+        },
+        {
           id: "results",
-          title: "Results and scope",
+          title: "Results",
           blocks: [
             { p: "Subsystems moved from standalone setups toward ATV integration, and hardware was fabricated to support steering and propulsion testing." },
           ],
@@ -378,12 +400,12 @@ window.PORTFOLIO = {
       title: "RC Racecar",
       cardPos: "",
       cardImage: "race-final",
-      cardOrg: "Machine Elements",
+      cardOrg: "ME 338",
       cardBlurb: "Rear-wheel-drive car with a laser-cut chassis and ~10:1 gearbox. 21.05 s over three laps.",
       cardTags: [
         ["Led fabrication &amp; assembly", "own"],
       ],
-      kicker: "Machine Elements &middot; Team project, Aug - Dec 2025",
+      kicker: "ME 338 Machine Elements &middot; Team project, Aug - Dec 2025",
       stats: [
         ["21.05 s", "three-lap race time"],
         ["~10:1", "gear reduction"],
@@ -496,9 +518,9 @@ window.PORTFOLIO = {
       id: "react",
       title: "REACT: Reaction-Wheel Magnetic Test Setup",
       cardPos: "",
-      cardImage: "react-layout",
+      cardImage: "react-board-photo",
       cardOrg: "Texas Spacecraft Lab",
-      cardBlurb: "Test layout for reaction-wheel magnetic measurements, plus cooling concepts in progress.",
+      cardBlurb: "Test layouts and materials for a reaction-wheel magnetic experiment, plus cooling concepts for the motor and coil.",
       cardTags: [
         ["Ongoing", "wip"],
       ],
@@ -508,97 +530,173 @@ window.PORTFOLIO = {
         ["Layout complete", "ok"],
         ["Cooling ongoing", "wip"],
       ],
-      lede: "Test hardware for studying the magnetic field of a spinning reaction wheel. Completed layout work is kept separate from cooling concepts that are still under investigation.",
+      lede: "Test hardware for studying the magnetic field of a spinning reaction wheel. I work on the Interior Hardware side: test layouts, materials, and now cooling for the motor and Helmholtz coil.",
       spec: [
-        ["Role", "Hardware engineer: test layout, now cooling concepts"],
+        [
+  "Role",
+  "Interior Hardware: test layout, materials, test-board CAD, cooling concepts",
+],
         ["Period", "Jan 2025 - present"],
         ["Tools", "SolidWorks"],
-        ["Status", "Layout done; cooling is concept stage"],
+        ["Status", "Layouts done; test board in build; cooling at concept stage"],
       ],
       sections: [
         {
           id: "overview",
           title: "Overview",
           blocks: [
-            { p: "REACT investigates magnetic-field behavior from a motor-driven flywheel (a reaction wheel) in a controlled test environment. The setup involves the wheel and motor, magnetometers, cameras, electronics, test fixtures and a Helmholtz coil." },
+            { p: "REACT investigates magnetic-field behavior from a motor-driven flywheel (a reaction wheel) in a controlled test environment. The setup involves the wheel and motor, magnetometers, cameras, electronics, test fixtures and a Helmholtz coil, all arranged so that nothing in the hardware disturbs what the magnetometers measure." },
             {
               images: [
-                ["react-layout", "Test board layout concept (SolidWorks)"],
+                [
+                  "react-board-photo",
+                  "The test board as it stands this fall: motor, speed controller, printed flywheel stand-ins and mounts",
+                ],
+                [
+                  "react-board-cad",
+                  "SolidWorks assembly of the test board with a placeholder flywheel and coil",
+                ],
               ],
-            },
-            { p: "Damping and magnetometer support hardware concepts used to visualize the broader test setup:" },
-            {
-              images: [
-                ["react-a", "Support concept A"],
-                ["react-b", "Support concept B"],
-                ["react-c", "Support concept C"],
-                ["react-d", "Support concept D"],
-              ],
-              contain: true,
             },
           ],
         },
         {
+          id: "role",
+          title: "My role",
+          blocks: [
+            {
+              role: {
+                mine: [
+                  "Developed SolidWorks test-layout concepts: an optical-table variant and a camera-slider variant",
+                  "Compared candidate materials for the test field with the team",
+                  "Put together the SolidWorks assembly of the current test board",
+                  "Developing proof-of-concept cooling designs for the motor and Helmholtz coil",
+                ],
+                team: [
+                  "Teammates built the damping and mounting hardware shown below, prototyped the magnetometer holder, and are building a winding fixture for the Helmholtz coil.",
+                ],
+              },
+            },
+          ],
+        },
+        {
+          id: "timeline",
+          title: "How it developed",
+          blocks: [
+            {
+              table: [
+                ["When", "What happened"],
+                ["Summer 2025", "Material research and first test-field layout concepts"],
+                [
+  "Fall 2025",
+  "Optical-table test field designed; platform and motor configuration research (Oct 2025)",
+],
+                ["Spring 2026", "Team built damper and mount hardware for the table"],
+                [
+  "Fall 2026",
+  "Helmholtz coil added; test board assembled; cooling proof-of-concepts",
+],
+              ],
+            },
+          ],
+        },
+        {
+          id: "materials",
+          title: "Material decision",
+          blocks: [
+            { p: "Anything near the magnetometers cannot be ferromagnetic, so steel and iron were out for the test field. The team compared the options:" },
+            {
+              table: [
+                ["Option", "For", "Against"],
+                [
+  "Titanium",
+  "Best magnetic cleanliness; strong",
+  "Expensive, among the hardest metals to machine",
+],
+                [
+  "Carbon fiber",
+  "Durable, accessible",
+  "Needs resin to join; induces eddy currents",
+],
+                [
+  "Aluminum 6061",
+  "Light, strong, affordable, easy to machine",
+  "Slightly paramagnetic; eddy currents possible",
+],
+              ],
+            },
+            { p: "The team chose <b>aluminum 6061</b> for the test field, with <b>fiberglass</b> around the magnetometers. Fiberglass is not conductive, so it avoids eddy currents exactly where the sensors are most sensitive." },
+          ],
+        },
+        {
           id: "done",
-          title: "Completed: test layout",
+          title: "Test-field layout",
           blocks: [
             {
               tags: [
                 ["Completed", "ok"],
               ],
             },
-            { p: "I developed SolidWorks layouts for the test environment. The layout had to place magnetometers and cameras where they could measure and see what mattered, avoid magnetic material near the sensors, and keep the flywheel visible during testing." },
+            { p: "I developed SolidWorks layouts for the test environment. They had to place magnetometers and cameras where they could measure and see what mattered, keep magnetic material away from the sensors, and keep the flywheel visible during testing." },
             { list: [
-  "<b>Magnetometer placement:</b> sensor positions chosen with interference in mind.",
-  "<b>Non-ferromagnetic materials:</b> hardware near the sensors must not distort the field being measured.",
-  "<b>Camera positioning:</b> optical-table and slider-based camera mounting concepts to improve visibility and positioning.",
+  "<b>Optical-table variant:</b> a table with a grid of screw holes for the flywheel, magnetometers, battery and motor.",
+  "<b>Slider variant:</b> a camera slider that reaches more angles and goes around the table's screw holes. The team's view was that the best design combines the slider for cameras with the optical table for everything else.",
+  "<b>Camera positioning:</b> sliders and an extendable pole were explored for more viewing angles; the sliding mechanism has not been built yet.",
 ] },
-            { p: "Some of the camera mounting concepts were explored but not carried through to implementation." },
+            {
+              images: [
+                ["react-layout", "Optical-table test field (SolidWorks)"],
+              ],
+            },
+            { p: "Spring 2026 hardware built by the team for the table: leg damper, damper rod, mount stabilizer and mount shelf." },
+            {
+              images: [
+                ["react-a", "Table-leg damper"],
+                ["react-b", "Damper rod"],
+                ["react-c", "Mount stabilizer"],
+                ["react-d", "Mount shelf"],
+              ],
+              contain: true,
+            },
           ],
         },
         {
           id: "wip",
-          title: "Ongoing: cooling concepts",
+          title: "Ongoing: cooling the motor and coil",
           blocks: [
             {
               tags: [
                 ["Concept stage, not validated", "wip"],
               ],
             },
-            { p: "The motor and the Helmholtz coil overheat. The whole setup is intended to sit inside a plexiglass enclosure. Any cooling has to avoid disturbing the magnetometers or loading the flywheel." },
-            { h3: "Concepts under investigation" },
+            { p: "This fall the team added a Helmholtz coil to the test board. Both the motor and the coil overheat, and when the motor heats up its electrical resistance rises and it loses power. The whole setup will sit inside a plexiglass cage, which raises the temperature further. Any cooling has to use non-ferromagnetic materials and cannot disturb the magnetometers or load the flywheel." },
+            { h3: "What I am investigating" },
             { list: [
   "Fan-driven motor cooling",
   "Clamp-on aluminum motor heat sinks",
   "3D-printed ducting and airflow manifolds",
   "Stand-off clips for the coil windings",
-  "External blowers delivering air through non-ferromagnetic tubing, to keep cooling hardware away from the sensors",
-  "Gear- or belt-driven cooling alternatives, weighed against the added mechanical load on flywheel measurements",
+  "External blowers feeding air through non-ferromagnetic tubing, so fans stay away from the sensors",
+  "Gear- or belt-driven cooling alternatives, weighed against the extra mechanical load on flywheel measurements",
 ] },
-            { p: "<b>Current preferred direction:</b> external electric blowers pushing air through non-ferromagnetic tubing into the enclosure, directed over the motor and copper windings. For the coil, two opposing side-slot manifolds, potentially fed by a Y-split duct." },
+            { p: "<b>Current preferred direction:</b> external electric blowers pushing air through non-ferromagnetic tubing into the enclosure, directed over the motor and copper windings. For the coil, two opposing side-slot manifolds, possibly fed by a Y-split duct." },
+            { p: "Open questions the team is working through include how much any airflow disturbs the measurement, whether that effect can be factored out, and how much heat the motor and coil actually produce." },
             { callout: "<b>Where this stands.</b> These are design concepts. None has been manufactured or tested yet, so no temperature results are claimed. I will add results here as they come in.", type: "wip" },
-          ],
-        },
-        {
-          id: "why",
-          title: "Why it is interesting",
-          blocks: [
-            { p: "Measurement quality depends on mechanical details here: what material sits next to a sensor, how airflow moves, how repeatable the setup is. The cooling work is a thermal problem with an unusual constraint: the solution cannot interfere with what is being measured." },
           ],
         },
       ],
     },
     {
       id: "drawing-machine",
-      title: "Cam-Driven Drawing Machine",
+      title: "MechaSketch: Cam-Driven Drawing Machine",
       cardPos: "",
       cardImage: "cam-build",
-      cardOrg: "Mechanism design",
+      cardOrg: "ME 350R",
       cardBlurb: "One motor, three cams: coordinated X, Y and pen-lift motion with no electronics.",
       cardTags: [
         ["Team project", ""],
       ],
-      kicker: "Robotic Mechanism Design &middot; Team project, Aug - Dec 2025",
+      kicker: "ME 350R Robot Mechanism Design &middot; Team project, Aug - Dec 2025",
       stats: [
         ["1 motor", "drives all motion"],
         ["3 cams", "X, Y and pen lift"],
@@ -690,7 +788,7 @@ window.PORTFOLIO = {
       id: "arts",
       title: "Surgical Screw Shape Sensing",
       cardPos: "",
-      cardImage: "",
+      cardImage: "arts-screw-bend",
       cardOrg: "ARTS Lab",
       cardBlurb: "Comparing fiber-optic shape reconstruction against motion capture in MATLAB.",
       cardTags: [
@@ -698,18 +796,19 @@ window.PORTFOLIO = {
       ],
       kicker: "ARTS Lab &middot; Student researcher, May - Jul 2025",
       stats: [
-        ["Sub-mm", "tip-position accuracy in some calibration results"],
-        ["3", "bending cases compared: free, sharp, round"],
+        ["< 1 mm", "tip error at 40 of 44 stage-2 obstacle positions"],
+        ["11", "actuation positions per test, 0 to 25 mm"],
+        ["10", "test conditions: left and right, free plus four obstacle cases"],
       ],
       tags: [
         ["Research", "own"],
         ["Data analysis", ""],
       ],
-      lede: "Analyzing how well fiber-optic sensing can reconstruct the shape of a flexible surgical screw as it bends, using motion capture as the reference.",
+      lede: "Checking how well fiber-optic sensing can reconstruct the shape of a flexible surgical screw as it bends, using motion capture as ground truth, then animating the screw along the reconstructed shapes.",
       spec: [
-        ["Role", "Student researcher: data analysis"],
+        ["Role", "Student researcher: data processing, calibration, visualization"],
         ["Period", "May - Jul 2025"],
-        ["Tools", "MATLAB"],
+        ["Tools", "MATLAB, Python, SolidWorks"],
         ["Equipment", "LUNA fiber-optic sensing, VICON motion capture"],
       ],
       sections: [
@@ -717,14 +816,18 @@ window.PORTFOLIO = {
           id: "overview",
           title: "Overview",
           blocks: [
-            { p: "The lab studies a flexible surgical screw whose shape can be inferred from fiber-optic strain measurements. The question I worked on: how closely does the reconstructed shape match the reference from motion capture?" },
+            { p: "The Advanced Robotic Technologies for Surgery (ARTS) Lab at UT Austin develops flexible, dexterous instruments and implants for minimally invasive surgery. This work belongs to a project on flexible pedicle screws for spinal procedures, designed to reach regions of a vertebra that rigid instruments cannot." },
+            { p: "To steer a flexible screw safely you need to know its shape while it is inside the body. The approach here is to infer the shape from fiber-optic strain readings. My question: how closely does that reconstructed shape match what motion capture measures?" },
             {
               flow: [
-                ["Bend", "A flexible screw is bent in the test setup"],
+                ["Bend", "A motor-driven ball screw bends the flexible screw in fixed steps"],
                 ["Sense", "LUNA fiber-optic sensing measures strain along the screw"],
-                ["Reconstruct", "Strain is used to reconstruct the shape"],
-                ["Reference", "VICON tracks reflective markers for reference data"],
-                ["Compare", "Align data in MATLAB and evaluate error"],
+                ["Reconstruct", "Strain becomes curvature, then a 2D shape"],
+                [
+  "Reference",
+  "VICON tracks reflective markers on the screw for ground truth",
+],
+                ["Compare", "Align both in MATLAB and compute tip and shape error"],
               ],
             },
           ],
@@ -736,31 +839,92 @@ window.PORTFOLIO = {
             {
               role: {
                 mine: [
-                  "Analyzed experimental bending data in MATLAB",
-                  "Adjusted inputs such as origin alignment, tip position and marker intervals so LUNA reconstructions lined up with VICON data",
-                  "Compared accuracy using plots of strain, curvature, and tip and shape error",
-                  "Covered free, sharp and round bending cases",
+                  "Learned the setup from the lab's prior theses and a tutorial, then ran the shape-accuracy MATLAB pipeline on test data",
+                  "Calibrated the inputs (origin, tip, marker intervals) to align LUNA reconstructions with VICON, and placed the obstacle model",
+                  "Plotted strain, curvature and shape comparisons and wrote up the procedure",
+                  "Put together a presentation summarizing the procedure, data and results",
+                  "Converted the screw model into a 2D outline and animated its bending in MATLAB",
                 ],
                 team: [
-                  "The lab developed the fiber-optic sensing technology and the shape-reconstruction methods",
+                  "The lab built the flexible screw, the fiber-optic sensing and the shape-reconstruction methods, and a PhD student guided my analysis.",
                 ],
               },
             },
           ],
         },
         {
-          id: "method",
-          title: "Analysis approach",
+          id: "tests",
+          title: "What was tested",
           blocks: [
-            { p: "Comparing two measurement systems is largely an alignment problem. The reconstruction and the VICON markers need to share an origin and be compared at matching positions before error means anything." },
-            { p: "I tuned those inputs in MATLAB, then examined strain, curvature, and tip and shape error for each bending condition." },
+            { p: "Each data set bends the screw in eleven steps (positions 0 to 10). A ball screw with a 5 mm lead is driven a half revolution per step, so each step moves the actuator 2.5 mm and the full set covers 25 mm of travel. Tests were repeated on the left and right sides:" },
+            {
+              table: [
+                ["Condition", "What it is"],
+                ["Free bending", "No obstacle"],
+                [
+  "Round obstacle, stage 1 and stage 2",
+  "Screw bends around a rounded obstacle at two placements",
+],
+                [
+  "Sharp obstacle, stage 1 and stage 2",
+  "Screw bends against a sharp-edged obstacle at two placements",
+],
+              ],
+            },
+          ],
+        },
+        {
+          id: "pipeline",
+          title: "Analysis pipeline",
+          blocks: [
+            { list: [
+  "<b>Strain to shape:</b> read strain from the sensor data, convert it to curvature, then build the 2D shape.",
+  "<b>Ground truth:</b> import VICON marker positions, average them, and measure the intervals between markers.",
+  "<b>Calibration:</b> adjust the sensor origin and tip while holding the sensor length at 17 cm, and update the marker intervals, until the two shapes line up.",
+  "<b>Obstacle:</b> load the obstacle model and rotate and translate it into position from the recorded coordinates.",
+  "<b>Error:</b> compute tip error, average shape error and curve length for each position.",
+] },
+            { p: "A few positions took real troubleshooting. Inputs that brought the tip error under 1 mm at one position left it far higher at others, so I compared my numbers and code against teammates' and the tutorial until the alignment made sense." },
           ],
         },
         {
           id: "results",
           title: "Results",
           blocks: [
-            { p: "Some calibration results achieved submillimeter tip-position accuracy against the VICON reference." },
+            { p: "Across the stage 2 obstacle tests, tip error stayed under 1 mm at 40 of 44 positions. Free bending and the stage 1 tests showed larger errors, up to about 5 mm at full actuation." },
+            {
+              images: [
+                [
+                  "arts-left-free",
+                  "Left-side free bending: photo, reconstructed shape, and tip and shape error at each of the eleven positions",
+                ],
+              ],
+            },
+            { p: "I also plotted the first and second derivatives of strain against motor displacement for free, round and sharp bending, to see how the strain signal differs between the three cases." },
+            {
+              images: [
+                ["arts-strain-stage1", "Strain derivatives, left side, stage 1"],
+                ["arts-strain-stage2", "Strain derivatives, left side, stage 2"],
+              ],
+            },
+          ],
+        },
+        {
+          id: "modeling",
+          title: "Animating the screw",
+          blocks: [
+            { p: "In a follow-up modeling task I turned the reconstructed shapes into an animation of the screw itself. I imported the 3D screw model into SolidWorks, exported a 2D outline as a DXF, and used Python to pull out the outline coordinates and the screw's centerline." },
+            { p: "In MATLAB I split the screw into a rigid base and a flexible section, anchored the base to the start of the bending path, and warped the flexible section along the curvature path from the last 50 frames of sensor data. The result shows how the screw would physically deform as it bends." },
+            {
+              images: [
+                ["arts-screw-model", "2D outline of the screw used as animation input"],
+                [
+  "arts-screw-bend",
+  "Animation frame: flexible section following a reconstructed curvature path",
+],
+              ],
+              contain: true,
+            },
           ],
         },
         {
@@ -768,8 +932,9 @@ window.PORTFOLIO = {
           title: "Takeaways",
           blocks: [
             { list: [
-  "Evaluating a sensor against a reference measurement, including the alignment work that comes first.",
-  "Reading strain, curvature and error plots to judge a result.",
+  "Comparing a sensor with a reference measurement is mostly alignment work, and it has to come first.",
+  "Strain, curvature and error plots tell you whether a result deserves trust.",
+  "Turning raw data into a picture someone can read is a skill of its own.",
 ] },
           ],
         },
